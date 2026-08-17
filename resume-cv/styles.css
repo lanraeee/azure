@@ -1,0 +1,278 @@
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --accent: #0a66c2;
+  --accent-light: #e8f0fb;
+  --text: #1a1a2e;
+  --muted: #5a6373;
+  --border: #dde3ec;
+  --bg: #f5f7fa;
+  --white: #ffffff;
+  --green: #16a34a;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+  padding: 2rem 1rem;
+}
+
+.page {
+  max-width: 880px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+  overflow: hidden;
+}
+
+/* ── Header ── */
+header {
+  background: linear-gradient(135deg, #0a66c2 0%, #1a3a6e 100%);
+  color: var(--white);
+  padding: 2.6rem 2.5rem 2rem;
+}
+
+header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+header .tagline {
+  font-size: 1rem;
+  opacity: 0.85;
+  margin-top: 0.35rem;
+  font-weight: 400;
+}
+
+.contact-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem 1.6rem;
+  margin-top: 1.1rem;
+  font-size: 0.86rem;
+  opacity: 0.92;
+}
+
+.contact-bar a,
+.contact-bar span {
+  color: var(--white);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.contact-bar a:hover { text-decoration: underline; }
+
+.icon { width: 15px; height: 15px; fill: currentColor; flex-shrink: 0; }
+
+/* ── Visitor Counter ── */
+.visitor-counter {
+  display: none;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1rem;
+  font-size: 0.82rem;
+  color: rgba(255,255,255,0.88);
+}
+
+.visitor-counter .pulse {
+  width: 8px;
+  height: 8px;
+  background: #4ade80;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); box-shadow: 0 0 0 0 rgba(74,222,128,0.5); }
+  50%       { opacity: 0.7; transform: scale(1.25); box-shadow: 0 0 0 5px rgba(74,222,128,0); }
+}
+
+.visitor-counter strong { color: #fff; font-weight: 700; }
+
+/* ── Layout ── */
+.body { display: grid; grid-template-columns: 240px 1fr; }
+
+.sidebar {
+  background: var(--accent-light);
+  padding: 1.8rem 1.4rem;
+  border-right: 1px solid var(--border);
+}
+
+.main { padding: 1.8rem 2rem; }
+
+/* ── Section ── */
+.section { margin-bottom: 1.8rem; }
+
+.section-title {
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--accent);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 0.28rem;
+  margin-bottom: 0.9rem;
+}
+
+/* ── Profile ── */
+.profile-text {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+/* ── Skills ── */
+.skill-group { margin-bottom: 0.95rem; }
+
+.skill-group h4 {
+  font-size: 0.76rem;
+  font-weight: 700;
+  color: var(--muted);
+  margin-bottom: 0.38rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tags { display: flex; flex-wrap: wrap; gap: 0.35rem; }
+
+.tag {
+  background: var(--white);
+  border: 1px solid var(--border);
+  color: var(--text);
+  font-size: 0.75rem;
+  padding: 0.18rem 0.55rem;
+  border-radius: 20px;
+  font-weight: 500;
+}
+
+/* ── Certifications ── */
+.cert-item {
+  font-size: 0.8rem;
+  color: var(--text);
+  padding: 0.28rem 0;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: flex-start;
+  gap: 0.45rem;
+  line-height: 1.4;
+}
+
+.cert-item:last-child { border-bottom: none; }
+
+.cert-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent);
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 0.35rem;
+}
+
+/* ── Education ── */
+.edu-item { margin-bottom: 0.9rem; }
+
+.edu-degree {
+  font-size: 0.83rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.3;
+}
+
+.edu-school {
+  font-size: 0.78rem;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.edu-grade {
+  display: inline-block;
+  font-size: 0.72rem;
+  background: var(--accent);
+  color: #fff;
+  padding: 0.1rem 0.5rem;
+  border-radius: 20px;
+  margin-top: 0.2rem;
+  font-weight: 600;
+}
+
+/* ── Experience entries ── */
+.entry { margin-bottom: 1.5rem; }
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.entry-title { font-size: 0.98rem; font-weight: 700; color: var(--text); }
+.entry-org   { font-size: 0.86rem; color: var(--accent); font-weight: 600; margin-top: 0.1rem; }
+
+.entry-date {
+  font-size: 0.74rem;
+  color: var(--muted);
+  white-space: nowrap;
+  background: var(--accent-light);
+  padding: 0.15rem 0.55rem;
+  border-radius: 20px;
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.entry-sub {
+  font-size: 0.78rem;
+  color: var(--muted);
+  font-style: italic;
+  margin-top: 0.2rem;
+  margin-bottom: 0.4rem;
+}
+
+.entry ul { padding-left: 1.1rem; }
+
+.entry ul li {
+  font-size: 0.855rem;
+  color: var(--muted);
+  margin-bottom: 0.28rem;
+}
+
+/* ── Project cards ── */
+.project-card {
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-left: 3px solid var(--accent);
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.project-card h4 { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+
+.project-card .stack {
+  font-size: 0.73rem;
+  color: var(--accent);
+  font-weight: 600;
+  margin: 0.15rem 0 0.4rem;
+}
+
+.project-card p { font-size: 0.83rem; color: var(--muted); }
+
+/* ── Responsive ── */
+@media (max-width: 660px) {
+  .body { grid-template-columns: 1fr; }
+  .sidebar { border-right: none; border-bottom: 1px solid var(--border); }
+  header h1 { font-size: 1.8rem; }
+}
+
+@media print {
+  body { background: white; padding: 0; }
+  .page { box-shadow: none; border-radius: 0; }
+  .visitor-counter { display: none !important; }
+}
