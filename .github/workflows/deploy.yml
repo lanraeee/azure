@@ -27,6 +27,7 @@ jobs:
         uses: azure/CLI@v2
         with:
           inlineScript: |
+            cd resume-cv
             for f in index.html error404.html styles.css script.js; do
               az storage blob upload \
                 --account-name resumefb \
