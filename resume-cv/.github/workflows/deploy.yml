@@ -1,0 +1,48 @@
+name: Deploy to Azure
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Azure Login (OIDC)
+        uses: azure/login@v2
+        with:
+          client-id: ${{ secrets.AZURE_CLIENT_ID }}
+          tenant-id: ${{ secrets.AZURE_TENANT_ID }}
+          subscription-id: ${{ secrets.AZURE_SUBSCRIPTION_ID }}
+
+      - name: Upload static files to Azure Storage
+        uses: azure/CLI@v2
+        with:
+          inlineScript: |
+            for f in index.html error404.html styles.css script.js; do
+              az storage blob upload \
+                --account-name resumefb \
+                --container-name '$web' \
+                --name "$f" \
+                --file "$f" \
+                --auth-mode login \
+                --overwrite
+            done
+
+      - name: Purge Front Door cache
+        uses: azure/CLI@v2
+        with:
+          inlineScript: |
+            az afd endpoint purge \
+              --resource-group Lanraeee \
+              --profile-name fbresumeFDCDN \
+              --endpoint-name cv1 \
+              --content-paths "/*"
