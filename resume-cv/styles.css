@@ -202,6 +202,52 @@ header .tagline {
   font-weight: 600;
 }
 
+/* ── Timeline ── */
+.timeline {
+  position: relative;
+  padding-left: 1.6rem;
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 5px;
+  top: 10px;
+  bottom: 10px;
+  width: 2px;
+  background: linear-gradient(to bottom, var(--accent) 0%, rgba(10,102,194,0.18) 100%);
+  border-radius: 2px;
+}
+
+.timeline .entry {
+  position: relative;
+}
+
+.timeline .entry::before {
+  content: '';
+  position: absolute;
+  left: -1.35rem;
+  top: 6px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--white);
+  border: 2.5px solid var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-light);
+  z-index: 1;
+}
+
+.timeline .entry::after {
+  content: '';
+  position: absolute;
+  left: -0.75rem;
+  top: 10px;
+  width: 8px;
+  height: 2px;
+  background: var(--accent);
+  opacity: 0.45;
+}
+
 /* ── Experience entries ── */
 .entry { margin-bottom: 1.5rem; }
 
