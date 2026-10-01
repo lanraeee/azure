@@ -30,9 +30,70 @@ body {
 
 /* ── Header ── */
 header {
+  position: relative;
   background: linear-gradient(135deg, #0a66c2 0%, #1a3a6e 100%);
   color: var(--white);
   padding: 2.6rem 2.5rem 2rem;
+}
+
+/* ── CV Stamp Badge ── */
+.cv-stamp {
+  position: absolute;
+  top: 1.1rem;
+  right: 1.4rem;
+  width: 128px;
+  height: 128px;
+  transform: rotate(-9deg);
+  animation: stampGlow 2.6s ease-in-out infinite;
+  pointer-events: none;
+}
+
+.stamp-svg { width: 100%; height: 100%; overflow: visible; }
+
+.stamp-ring-outer {
+  fill: none;
+  stroke: url(#goldGrad);
+  stroke-width: 2.5;
+  stroke-dasharray: 3 4;
+}
+
+.stamp-ring-inner {
+  fill: none;
+  stroke: url(#goldGrad);
+  stroke-width: 1.4;
+}
+
+.stamp-text-arc {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2.2px;
+  fill: url(#goldGrad);
+}
+
+.stamp-text-main {
+  font-size: 15px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  fill: url(#goldGrad);
+}
+
+.stamp-dot { fill: url(#goldGrad); }
+
+@keyframes stampGlow {
+  0%, 100% {
+    filter: drop-shadow(0 0 5px rgba(255,210,90,0.6)) drop-shadow(0 0 12px rgba(214,168,62,0.4));
+  }
+  50% {
+    filter: drop-shadow(0 0 9px rgba(255,225,140,0.95)) drop-shadow(0 0 22px rgba(224,180,70,0.75));
+  }
+}
+
+@media (max-width: 660px) {
+  .cv-stamp { width: 86px; height: 86px; top: 0.6rem; right: 0.8rem; }
+}
+
+@media print {
+  .cv-stamp { display: none; }
 }
 
 header h1 {
