@@ -404,3 +404,45 @@ header .tagline {
   .page { box-shadow: none; border-radius: 0; }
   .visitor-counter { display: none !important; }
 }
+
+/* ── Scroll-to-top CTA ── */
+.scroll-top-btn {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 50;
+  display: none;
+  align-items: center;
+  gap: 0.4rem;
+  background: linear-gradient(135deg, #0a66c2 0%, #1a3a6e 100%);
+  color: #fff;
+  border: none;
+  border-radius: 999px;
+  padding: 0.5rem 1.05rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.3px;
+  font-family: inherit;
+  box-shadow: 0 4px 14px rgba(10,102,194,0.4);
+  cursor: pointer;
+  animation: ctaBounce 1.6s ease-in-out infinite;
+}
+
+.scroll-top-btn.visible { display: inline-flex; }
+
+.scroll-top-btn .icon { width: 13px; height: 13px; fill: currentColor; flex-shrink: 0; }
+
+.scroll-top-btn:hover { box-shadow: 0 6px 20px rgba(10,102,194,0.55); }
+
+@keyframes ctaBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-7px); }
+}
+
+@media (max-width: 660px) {
+  .scroll-top-btn { top: 10px; right: 10px; padding: 0.4rem 0.85rem; font-size: 0.72rem; }
+}
+
+@media print {
+  .scroll-top-btn { display: none !important; }
+}
