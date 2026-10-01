@@ -248,6 +248,27 @@ header .tagline {
   opacity: 0.45;
 }
 
+.timeline .entry-simulation {
+  margin-left: -1.6rem;
+  padding-left: 1rem;
+  border-left: 2px dashed var(--accent);
+  opacity: 0.85;
+}
+
+.timeline .entry-simulation::before {
+  left: -1.8rem;
+  border-color: var(--accent);
+  border-style: dashed;
+  opacity: 0.7;
+}
+
+.timeline .entry-simulation::after {
+  left: -1.1rem;
+  width: 12px;
+  background: var(--accent);
+  opacity: 0.3;
+}
+
 /* ── Experience entries ── */
 .entry { margin-bottom: 1.5rem; }
 
